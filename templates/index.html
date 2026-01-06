@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fake Review Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>🕵️ Fake Review Detection System</h1>
+        <p class="subtitle">
+            Enter a product review to check whether it is <b>Genuine</b> or <b>Fake</b>
+        </p>
+
+        <form action="/predict" method="post">
+            <textarea name="review" placeholder="Enter your review here..." required></textarea>
+            <button type="submit">Check Review</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                <h2>Prediction Result</h2>
+                <p class="prediction">{{ prediction }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
+
